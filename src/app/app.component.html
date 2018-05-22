@@ -1,0 +1,38 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="main_section">
+<div class="main_container">
+    <select class="selection_change" [(ngModel)]="selectOption" (ngModelChange)="onSelectionChange($event)" name="options">
+        <option [value]=null>Select</option>
+        <option [value]="i" *ngFor="let i of Options">{{i}}</option>
+    </select>
+    <input class="search_area" placeholder="Search User" type="text" [(ngModel)]="appservice.searchString" (ngModelChange)="onKey($event)"/>
+</div>
+<div class="total_score_section" *ngIf="(peopleItem.length>0); else no_data">
+  <label><span>Total Result:</span>{{result}}</label>
+ <span class="errro_msg">{{appservice.errorMsg}}</span> 
+</div>
+<ul>
+  <li class="items_show" *ngFor ="let data of peopleItem| paginate: { itemsPerPage: 10, currentPage: p }">
+    <div class="img_show">
+        <img src="{{data.avatar_url}}" class="img_circle" height="50" width="50">
+    </div>
+    <div class="data_show">
+        <h4>{{data.login}}</h4>
+        <div><span>Profile URL:</span><span>{{data.url}}</span></div>
+        <div><span>ID:</span><span>{{data.id}}</span></div>
+        <div><span>Score:</span><span>{{data.score}}</span></div>
+        <app-detail-component [data]="data.login"></app-detail-component>
+    </div>
+   
+   </li>
+   <div class="pagination_class">
+      <pagination-controls *ngIf="peopleItem.length>0" (pageChange)="p = $event"></pagination-controls>
+   </div>
+   
+   <ng-template #no_data>
+    <h4 class="no_data">Please search user </h4>
+   </ng-template>
+</ul>
+</div>
+
+

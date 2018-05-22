@@ -1,0 +1,27 @@
+.show_details_button{
+    margin-top: 2px;
+margin-left: 500px;
+height: 37px;
+width: 87px;
+border-radius: 4px;
+color: #03A9F4;
+font-size: 17px;
+border: 1px solid #03A9F4;
+}
+.repo_name_show{
+    float: left;
+    width:50%;
+}
+.background_change{
+    background: #d9dbdc1a;  
+}
+.repo_set{
+    border: 1px solid #8080801f;
+    margin-top: 4px;
+}
+.open_issues{
+    margin-left:12px;
+}
+.fork_issues{
+    margin-left:24px;
+}

@@ -1,0 +1,17 @@
+<button *ngIf="!showDiv" class="show_details_button" (click)="showDetails(data,'details')">Details</button>
+<button  *ngIf="showDiv" class="show_details_button" (click)="showDetails(data,'collapse')">Collapse</button>
+
+<div *ngIf="showDiv">
+    <div *ngFor="let repo of repos;let i = index" class="repo_set" [ngClass]="{'background_change':(i%2===0)}">
+        <div class="repo_name_show">
+                <label>{{repo.name}}</label>
+        </div>
+        <div class="repo_img">
+                <img src="{{repo?.languages_url}}" height="50" width="50">
+        </div>
+        <div>
+            <span class="open_issues">Open Issues: <label>{{repo?.open_issues_count}}</label></span>
+            <span class="fork_issues">Fork Count: <label>{{repo?.forks_count}}</label></span>
+        </div>
+    </div>
+</div>
